@@ -36,10 +36,10 @@ chown -R $RUID:$RUID /home/$RUID/
 
 # Install packages using pacman
 show_message "Instalando pacotes"
-pacman -S base-devel flatpak tmux git curl wget ca-certificates gnupg blender thunderbird vim gedit gimp flameshot plymouth ttf-fira-code cheese screenfetch python python-gnupg python-pip python-setuptools python-pylint inkscape anydesk-bin virtualbox virtualbox-host-modules-arch virtualbox-guest-iso virtualbox-guest-utils vlc filezilla steam gparted pinta nmap traceroute ncdu p7zip okular unrar discord tlp dkms acpi_call-dkms powerline-fonts calibre samba gnome-boxes audacity teamviewer grub-customizer htop scrcpy whois ncurses lib32-ncurses gmp remmina tree obs-studio joyutils speedtest-cli pv neovim clang cmake ninja pkg-config libxcb libyaml xz ffmpeg xclip tldr plymouth openshot wine wireshark-qt wireshark-cli libdvdread ttf-ms-win10-auto
+pacman -S base-devel flatpak tmux git curl wget ca-certificates gnupg blender thunderbird vim gedit gimp flameshot plymouth ttf-fira-code cheese screenfetch python python-gnupg python-pip python-setuptools python-pylint inkscape anydesk-bin virtualbox virtualbox-host-modules-arch virtualbox-guest-iso virtualbox-guest-utils vlc filezilla steam gparted pinta nmap traceroute ncdu p7zip okular discord tlp dkms acpi_call-dkms powerline-fonts calibre samba gnome-boxes audacity teamviewer grub-customizer htop scrcpy whois ncurses lib32-ncurses gmp remmina tree obs-studio joyutils speedtest-cli pv neovim clang intel-media-driver cmake ninja pkg-config libxcb libyaml xz ffmpeg xclip tldr plymouth openshot wine wireshark-qt wireshark-cli libdvdread ttf-ms-win10-auto
 
 # Install packages using yay
-yay -S google-chrome microsoft-edge-stable-bin dropbox visual-studio-code-bin snapd rar kazam preload python2 libmysqlclient jstest-gtk-git rpi-imager
+yay -S google-chrome microsoft-edge-stable-bin dropbox visual-studio-code-bin rar snapd kazam preload python2 libmysqlclient jstest-gtk-git rpi-imager
 
 # Add user to vbox group
 usermod -aG vboxusers $RUID
