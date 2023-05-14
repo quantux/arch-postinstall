@@ -11,6 +11,7 @@ VirtualBox VMs
 Android
 workspace
 .local/share/Trash
+.android
 .steam
 .vmware
 vmware
