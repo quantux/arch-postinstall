@@ -30,12 +30,13 @@ tar -zxvf /tmp/home.tar.gz -C /tmp
 rsync -aAXv /tmp/home/ /home/$RUID/
 chown -R $RUID:$RUID /home/$RUID/
 
-# Install packages using pacman
-show_message "Instalando pacotes"
-sudo pacman -S --noconfirm --needed base-devel flatpak tmux git curl wget ca-certificates gnupg blender thunderbird vim gedit gimp flameshot plymouth ttf-fira-code cheese screenfetch python python-gnupg python-pip python-setuptools python-pylint inkscape virtualbox virtualbox-guest-iso virtualbox-guest-utils vlc filezilla steam gparted pinta nmap traceroute ncdu p7zip okular discord tlp dkms acpi_call-dkms powerline-fonts calibre samba gnome-boxes audacity htop scrcpy whois ncurses lib32-ncurses gmp remmina tree obs-studio joyutils speedtest-cli pv neovim clang intel-media-driver cmake ninja pkg-config libxcb libyaml xz ffmpeg xclip tldr plymouth openshot wine wireshark-qt wireshark-cli libdvdread
-
 # Install packages using yay
-user_do "yay -S --needed --noconfirm --sudoloop google-chrome microsoft-edge-stable-bin anydesk-bin ttf-ms-win10-auto teamviewer grub-customizer dropbox visual-studio-code-bin rar snapd kazam preload python2 jstest-gtk-git rpi-imager"
+show_message "Instalando pacotes - yay"
+user_do "yay -S --needed --noconfirm --sudoloop google-chrome microsoft-edge-stable-bin anydesk-bin ttf-ms-win10-auto teamviewer grub-customizer dropbox visual-studio-code-bin rar snapd kazam preload python2 jstest-gtk-git rpi-imager android-studio insomnia postman-bin"
+
+# Install packages using pacman
+show_message "Instalando pacotes - pacman"
+sudo pacman -S --noconfirm --needed base-devel flatpak tmux git curl wget ca-certificates gnupg blender thunderbird vim gedit gimp flameshot plymouth ttf-fira-code cheese screenfetch python python-gnupg python-pip python-setuptools python-pylint inkscape virtualbox virtualbox-guest-iso virtualbox-guest-utils vlc filezilla steam gparted pinta nmap traceroute ncdu p7zip okular discord tlp dkms acpi_call-dkms powerline-fonts calibre samba gnome-boxes audacity htop scrcpy whois ncurses lib32-ncurses gmp remmina tree obs-studio joyutils speedtest-cli pv neovim clang intel-media-driver cmake ninja pkg-config libxcb libyaml xz ffmpeg xclip tldr plymouth openshot wine wireshark-qt wireshark-cli libdvdread apache nginx openssh php php-apache mariadb jdk-openjdk docker
 
 # Add user to vbox group
 usermod -aG vboxusers $RUID
@@ -130,11 +131,6 @@ smbpasswd -a $RUID
 setfacl -R -m "u:$RUID:rwx" /home/$RUID/Kodi/
 systemctl restart smbd
 
-# ---- Programming things
-show_message "Instalando servidores, ferramentas e linguagens"
-pacman -S --noconfirm --needed apache nginx openssh php php-apache mariadb jdk-openjdk docker 
-user_do "yay -S --needed --noconfirm --sudoloop android-studio insomnia postman-bin"
-
 # Configuring mysql
 show_message "Configurando MariaDB"
 mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
@@ -151,7 +147,6 @@ user_do "composer global require laravel/installer"
 systemctl disable httpd.service 
 systemctl disable nginx.service
 systemctl disable mariadb
-# ---- Programming things installed ----
 
 # Define zsh como shell padrão
 show_message "Definir zsh como shell padrão"
